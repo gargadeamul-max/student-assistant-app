@@ -9,10 +9,9 @@ st.set_page_config(
 
 st.title("🎓 AI-Powered Student Assistant")
 st.write("Your simple digital assistant for study, planning and notes.")
-
 menu = st.sidebar.selectbox(
     "Choose an option",
-    ["🏠 Home", "🤖 Student Chatbot", "📚 Study Planner", "📝 Notes", "❓ Quiz Generator"]
+    ["🏠 Home", "🤖 Student Chatbot", "📚 Study Planner", "📝 Notes", "❓ Quiz Generator", "📄 PDF Study Assistant"]
 )
 
 if menu == "🏠 Home":
