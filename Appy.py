@@ -120,8 +120,7 @@ elif menu == "❓ Quiz Generator":
                 key="q3"
             )
 
-            st.success("Quiz generated successfully! 🎉")
-            
-            else:
+                        st.success("Quiz generated successfully! 🎉")
+        else:
             st.warning("Please enter a quiz topic.")
             
