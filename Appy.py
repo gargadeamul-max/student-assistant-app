@@ -12,7 +12,7 @@ st.write("Your simple digital assistant for study, planning and notes.")
 
 menu = st.sidebar.selectbox(
     "Choose an option",
-    ["🏠 Home", "🤖 Student Chatbot", "📚 Study Planner", "📝 Notes"]
+    ["🏠 Home", "🤖 Student Chatbot", "📚 Study Planner", "📝 Notes", "❓ Quiz Generator"]
 )
 
 if menu == "🏠 Home":
@@ -90,3 +90,38 @@ elif menu == "📝 Notes":
             st.write(note)
         else:
             st.warning("Please enter a title and note.")
+elif menu == "❓ Quiz Generator":
+    st.header("❓ Quiz Generator")
+
+    topic = st.text_input("Enter quiz topic:")
+
+    if st.button("Generate Quiz"):
+        if topic.strip():
+            st.subheader(f"📚 Quiz: {topic}")
+
+            st.write("**1. What is the main purpose of studying this topic?**")
+            st.radio(
+                "Choose your answer:",
+                ["Learning concepts", "Playing games", "Watching movies", "None"],
+                key="q1"
+            )
+
+            st.write("**2. Which option is related to the topic?**")
+            st.radio(
+                "Choose your answer:",
+                [topic, "Cooking", "Sports", "Music"],
+                key="q2"
+            )
+
+            st.write("**3. Why is this topic important?**")
+            st.radio(
+                "Choose your answer:",
+                ["For learning and knowledge", "For sleeping", "For shopping", "None"],
+                key="q3"
+            )
+
+            st.success("Quiz generated successfully! 🎉")
+            
+            else:
+            st.warning("Please enter a quiz topic.")
+            
