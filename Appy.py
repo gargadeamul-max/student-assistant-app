@@ -18,7 +18,6 @@ menu = st.sidebar.selectbox(
 if menu == "🏠 Home":
     st.header("Welcome! 👋")
     st.write("This app helps students organize their studies.")
-    
     st.info("Use the menu on the left to start.")
 
 elif menu == "🤖 Student Chatbot":
@@ -28,11 +27,30 @@ elif menu == "🤖 Student Chatbot":
 
     if st.button("Get Answer"):
         if question.strip():
-            st.success(
-                "Keep learning! For your question: "
-                + question
-                + "\n\nTry understanding the topic step-by-step and practice with examples."
-            )
+            q = question.lower()
+
+            if "python" in q:
+                answer = """Python is a high-level, interpreted programming language.
+It is easy to learn and is widely used in web development, artificial intelligence,
+machine learning, data science and automation.
+
+Example:
+print("Hello World")"""
+
+            elif "ai" in q or "artificial intelligence" in q:
+                answer = """Artificial Intelligence (AI) is a technology that enables
+computers to perform tasks that normally require human intelligence, such as
+learning, reasoning and understanding language."""
+
+            elif "machine learning" in q:
+                answer = """Machine Learning is a branch of AI in which computers
+learn patterns from data and use those patterns to make predictions or decisions."""
+
+            else:
+                answer = """I can help with common study topics such as Python,
+Artificial Intelligence and Machine Learning. Try asking a specific question."""
+
+            st.success(answer)
         else:
             st.warning("Please enter a question.")
 
@@ -42,7 +60,12 @@ elif menu == "📚 Study Planner":
     subject = st.text_input("Subject")
     study_date = st.date_input("Study Date", date.today())
     topic = st.text_input("Topic")
-    hours = st.number_input("Study Hours", min_value=1, max_value=12, value=2)
+    hours = st.number_input(
+        "Study Hours",
+        min_value=1,
+        max_value=12,
+        value=2
+    )
 
     if st.button("Create Study Plan"):
         if subject and topic:
